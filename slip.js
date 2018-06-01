@@ -218,7 +218,7 @@ window['Slip'] = (function(){
 
         target: null, // the tapped/swiped/reordered node with height and backed up styles
 
-        usingTouch: false, // there's no good way to detect touchscreen preference other than receiving a touch event (really, trust me).
+        usingTouch: ('ontouchstart' in document.documentElement),
         mouseHandlersAttached: false,
 
         startPosition: null, // x,y,time where first touch began
@@ -234,7 +234,7 @@ window['Slip'] = (function(){
                     this.target.node.style.willChange = '';
                     this.target = null;
                 }
-                this.usingTouch = false;
+                this.usingTouch = ('ontouchstart' in document.documentElement);
 
                 return {
                     allowTextSelection: true,
